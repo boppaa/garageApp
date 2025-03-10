@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import * as Tone from "tone";
 
 function App() {
+  const playKick = () => {
+    const player = new Tone.Player("https://freesound.org/data/previews/261/261573_4486188-lq.mp3").toDestination();
+    player.autostart = true;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: "center", padding: "50px" }}>
+      <h1>Drum Machine</h1>
+      <button onClick={playKick}>Play Kick</button>
     </div>
   );
 }
